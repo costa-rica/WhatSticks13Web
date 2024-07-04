@@ -1,0 +1,73 @@
+{% extends "_layout.html" %}
+{% block main %}
+<form method="POST" id="form_download_db" enctype=multipart/form-data></form>
+<form method="POST" id="form_recalculate_dash" enctype=multipart/form-data></form>
+
+<div class="user_home_page">
+
+    <div class="col_1">
+
+        <div class="title_custom">
+            <h1>What Sticks</h1>
+            <div id="small_screen_logo">
+                <img class="img_logo" src="{{ url_for('bp_main.website_images', filename='wsLogo180noName.png') }}" />
+            </div>
+        </div>
+
+        <div class="username">
+            {{ current_user.username }} data files:
+        </div>
+
+        {% if len(user_files_list) > 0 %}
+        <div class="paragraph_user_home">
+            <ul>
+                {% for csv_filename, csv_filename_short in zip(user_files_list, user_files_list_shortname) %}
+                <li><a href="{{ url_for('bp_users.user_file', filename= csv_filename )}}">{{ csv_filename_short }}</a></li>
+                {% endfor %}
+                <li><hr></li>
+                <li><a href="{{ url_for('bp_main.user_csv_documentation') }}"><i class="fa-regular fa-file"></i><span> CSV file documentation</span></a></li>
+            </ul>
+        </div><!-- paragraph_privacy -->
+        <div class="hr_for_user_home">
+            <hr>
+        </div>
+
+        <div class="std_frame_light_gray">
+            <div class="">
+                These files represent the data used to calculate your latest dashboard correlations.
+                <div class="element_to_right">
+                    <button type="submit" name="btn_download_files" value="zip_file" class="btn btn-primary"
+                    form="form_download_db">Download Zip</button>
+                </div>
+            </div>
+        </div><!-- std_frame_light_gray -->
+
+
+        {% else %}
+        <div class="paragraph_user_home">You have not uploaded any data.</div>
+        {% endif %}
+
+        <div class="std_frame_light_gray">
+            <div class="">
+                Recalculate your iPhone dashboard.
+                <br>
+                <p class="gray-font">
+                The primary reason for this is if you think you have added new data and the calculations on your iPhone are not consistent with your new data.
+                Recalculating will redo the calculations that show up on your iPhone app. 
+                Also, if there are changes the will reflect in the data files on this page.
+                </p>
+                <div class="element_to_right">
+                    <button type="submit" name="btn_recalculate_dashboard" value="dashboard" class="btn btn-primary"
+                    form="form_recalculate_dash">Recalculate Dashboard</button>
+                </div>
+            </div>
+        </div><!-- std_frame_light_gray -->
+
+        <div class="execess_space"></div>
+
+    </div><!-- col_1 -->
+
+
+</div><!-- user_home_page -->
+
+{% endblock %}

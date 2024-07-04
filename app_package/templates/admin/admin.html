@@ -1,0 +1,90 @@
+{% extends "_layout.html" %}
+{% block main %}
+<form method="POST" id="form_1" ></form>
+
+
+
+<div class="admin_page">
+    <!-- <div class="container"> -->
+    <div class="col_1">
+        <!-- <form method="POST" action="" enctype="multipart/form-data"> -->
+
+
+        <div class="title_custom">
+            <h1>Admin</h1>
+            <div id="small_screen_logo">
+                <img class="img_logo" src="{{ url_for('bp_main.website_images', filename='wsLogo180noName.png') }}" />
+            </div>
+        </div>
+
+
+
+        <div class="std_frame_light_gray ">
+            <div class="download_db_tables_form">
+                Database Options
+                <!-- <div class="home_sub"> -->
+                <div class="home_buttons">
+                    <a class="div_button home_register" href="{{ url_for('bp_admin.admin_db_download') }}">
+                        Download
+                    </a>
+
+                    <div class="upload_buttons_div">
+                        <a class="div_button home_login" href="{{ url_for('bp_admin.admin_db_upload_single_file') }}">
+                            Upload Single File
+                        </a>
+    
+                        <a class="div_button home_login" href="{{ url_for('bp_admin.admin_db_upload_zip') }}">
+                            Upload .zip and re-id
+                        </a>
+                    </div>
+
+
+                </div><!-- home_buttons -->
+
+                <!-- </div> -->
+
+            </div><!-- download_db_tables_form -->
+        </div><!-- std_frame_light_gray -->
+
+        <div class="std_frame_light_gray ">
+            <h3>Add Beta link</h3>
+            <div class="div_test_flight_link">
+                <label for="input_test_flight_link">Link to TestFlight:</label>
+                <!-- input type="text" id="email" name="email" form="form_1" -->
+                <input type="text" id="input_test_flight_link" name="input_test_flight_link" form="form_1" value="{{ test_flight_link }}">
+              </div>
+              <div class="test_flight_link_buttons">
+                <button class="btn btn-danger " form="form_1" name="delete_link">Delete Link</button>
+                <button class="btn btn-secondary " form="form_1" name="add_link">Update Link</button>
+              </div>
+              
+        </div>
+
+        <div class="std_frame_light_gray ">
+            <h2>Users</h2>
+            {% for user_and_user_loc_day_stats in users_user_loc_day_tuples %}
+            <ul class="ul_no_bullets">
+
+                <li><a class="remove-image" href="{{ url_for('bp_admin.delete_user', email=user_and_user_loc_day_stats[0].username) }}"
+                    style="display: inline;">{{ user_and_user_loc_day_stats[0].username }}</a>:   
+                     {{ user_and_user_loc_day_stats[0].timezone }}, Count of UserDayLoc: {{ user_and_user_loc_day_stats[1] }},
+                    Min: {{ user_and_user_loc_day_stats[2] }}, Max: {{ user_and_user_loc_day_stats[3] }} </li>
+
+
+            </ul>
+            {% endfor %}
+        </div>
+
+        <div class="std_frame_light_gray add_bottom_margin">
+            <a class="div_button btn_manage_weather_hist" href="{{ url_for('bp_admin.weather_history_admin') }}">
+                Manage Weather History
+            </a>
+        </div>
+
+
+
+
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "_layout.html" %}
+{% block main %}
+<!-- <div class="main_super"> -->
+
+    <div class="about_page">
+
+        <div class="col_1">
+
+            <div class="col_1_sub">
+                <div class="title_custom">
+                    <h1>What Sticks</h1>
+                    <div id="small_screen_logo">
+                        <img class="img_logo" src="{{ url_for('bp_main.website_images', filename='wsLogo180noName.png') }}"/>
+                    </div>
+                </div>
+
+                <div class="std_frame_light_gray std_frame_download">
+                    <div class="std_frame_sub">
+                        <h3>Goal and Mission</h3>
+                        Give users agency over their health data so they can reap the benefits from their own data.
+                        <ul>
+                            <li>Making your data accessible</li>
+                            <li>Making your data useful</li>
+                        </ul>
+                        
+                    </div>
+                </div><!-- std_frame_light_gray -->
+
+                <div class="std_frame_light_gray std_frame_download">
+                    <div class="std_frame_sub">
+                        <h3>More to digest</h3>
+                        
+                        <ul>
+                            <li><i class="date_font">2024-06-03</i>: The What Sticks problem statement <a href="{{ url_for('bp_main.what_sticks_video', filename='wsProblemStatement16.mp4') }}">video here</a>.<span class="font_highlight">New!</span></li> 
+                            <li><i class="date_font">2024-05-19</i>: Location tracking feature (iOS 2.1 release) <a href="{{ url_for('bp_main.what_sticks_video', filename='WsLocationFeature_v02.mp4') }}">video here</a>.</li> 
+                            <li><i class="date_font">2024-02-01</i>: App launch <a href="{{ url_for('bp_main.what_sticks_video', filename='LaunchVideo_v02.mp4') }}">video here</a>.</li>
+                            <li><i class="date_font">2024-01-30</i>: <a href="{{ url_for('bp_main.what_sticks_video', filename='SleepTime_v03.mp4') }}">Video</a> of iOS app you can download now.</li>
+                            <li><i class="date_font">2022-11-20</i>: <a href="https://nick-rodriguez.info/what_sticks_video01">Video</a> of concept from 2022 prototype 
+                                watch here</li>
+                            <li><i class="date_font">2022-10-16</i>: <a href="https://medium.com/@nrodrig1/average-outside-temperature-has-no-impact-on-my-sleep-ce21ee7012c6">Article</a> 
+                                using What Sticks data collection to provide insight on how temperature impacts my sleep. </li>
+                            <li><i class="date_font">2021-10-25</i>: <a href="https://medium.com/@nrodrig1/healthcare-is-not-up-to-date-2e58c01c1477">Article</a> on advent of data in health in wellness </li>
+                        </ul>
+                    </div>
+                </div><!-- std_frame_light_gray -->
+                {% if test_flight_link[:8] == 'https://' %}
+                <div class="std_frame_light_gray std_frame_download">
+                    <div class="std_frame_sub">
+                        <h3>Latest Beta Version</h3>
+                        <div class="element_padding">
+                            <a href="{{ url_for('bp_main.download_ios') }}"><i class="fa-solid fa-download"></i>Download iOS</a>
+                        </div>
+                        
+                    </div>
+                </div><!-- std_frame_light_gray -->
+                {% endif %}
+
+                <div class="std_frame_light_gray std_frame_download">
+                    <div class="std_frame_sub">
+                        Contact Us: nrodrig1@gmail.com
+                    </div>
+                </div><!-- std_frame_light_gray -->
+
+
+                <div class="excess_space"></div>
+
+            </div><!-- col_1_sub -->
+        </div><!-- col_1 -->
+    </div><!-- home_page -->
+<!-- </div>main_super -->
+
+
+
+{% endblock %}

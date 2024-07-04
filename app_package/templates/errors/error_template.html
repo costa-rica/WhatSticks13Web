@@ -1,0 +1,11 @@
+{% extends "_layout.html" %}
+{% block main %}
+    <div class="error_page">
+        <div class="col_1">
+            <div class="title"><h1>Ooops... {{ error_code }}</h1></div>
+           <div class="description">
+            {{ error_type }}: {{ error_message }}
+           </div>
+        </div>
+    </div>
+{% endblock %}

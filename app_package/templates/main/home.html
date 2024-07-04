@@ -1,0 +1,36 @@
+{% extends "_layout.html" %}
+{% block main %}
+<!-- <div class="main_super"> -->
+
+    <div class="home_page">
+
+        <div class="col_1">
+            <!-- <div class="col_1_sub"> -->
+                <div class="title_custom">
+                    <h1>What Sticks</h1>
+                        <div id="small_screen_logo">
+                            <img class="img_logo" src="{{ url_for('bp_main.website_images', filename='wsLogo180noName.png') }}"/>
+                        </div>
+                </div>
+
+                <div class="std_frame_light_gray std_frame_fixed_size flex_center_vertically">
+                    <div class="paragraph_home">
+                        The application that provides insights on sleep and exercise based on data already collected by your devices.
+                    </div>
+                </div><!-- std_frame_light_gray -->
+
+                <div class="std_frame_light_gray std_frame_fixed_size flex_center_vertically">
+                    <div class="paragraph_home download_ios">
+                        <a href="https://apps.apple.com/us/app/what-sticks-12/id6498888495">Download iOS</a>
+                    </div>
+                </div><!-- std_frame_light_gray -->
+
+                <div class="execess_space"></div>
+
+            <!-- </div>col_1_sub -->
+        </div><!-- col_1 -->
+
+    
+    </div><!-- home_page -->
+<!-- </div>main_super -->
+{% endblock %}
