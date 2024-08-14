@@ -31,7 +31,7 @@ bp_admin = Blueprint('bp_admin', __name__)
 @bp_admin.before_request
 def before_request():
     logger_bp_admin.info(f"- in before_request route --")
-    if not current_user.admin_users_permission:
+    if not current_user.admin_permission:
         return redirect(url_for('bp_users.user_home'))
     
     # g.db_session = DatabaseSession()
@@ -107,10 +107,10 @@ def admin_page():
 @login_required
 def admin_db_download():
     logger_bp_admin.info('- in admin_db_download -')
-    logger_bp_admin.info(f"current_user.admin_users_permission: {current_user.admin_users_permission}")
+    logger_bp_admin.info(f"current_user.admin_permission: {current_user.admin_permission}")
     db_session = g.db_session
 
-    if not current_user.admin_users_permission:
+    if not current_user.admin_permission:
         return redirect(url_for('bp_main.home'))
 
     metadata = Base.metadata
@@ -165,9 +165,9 @@ def admin_db_download():
 @login_required
 def admin_db_upload_single_file():
     logger_bp_admin.info('- in admin_db_upload_single_file -')
-    logger_bp_admin.info(f"current_user.admin: {current_user.admin_users_permission}")
+    logger_bp_admin.info(f"current_user.admin: {current_user.admin_permission}")
 
-    if not current_user.admin_users_permission:
+    if not current_user.admin_permission:
         return redirect(url_for('bp_main.home'))
 
     metadata = Base.metadata
@@ -224,11 +224,11 @@ def upload_table(table_name):
 
     db_session = g.db_session
 
-    logger_bp_admin.info(f"current_user.admin: {current_user.admin_users_permission}")
+    logger_bp_admin.info(f"current_user.admin: {current_user.admin_permission}")
     # path_to_uploaded_csv = request.args.get('path_to_uploaded_csv')
     path_to_uploaded_table_file = request.args.get('path_to_uploaded_table_file')
 
-    if not current_user.admin_users_permission:
+    if not current_user.admin_permission:
         return redirect(url_for('bp_main.home'))
 
     # Get Table Column names from the database corresponding to the running webiste/app
@@ -335,7 +335,7 @@ def upload_table(table_name):
 def admin_db_upload_zip():
     logger_bp_admin.info('- in admin_db_upload_zip -')
 
-    if not current_user.admin_users_permission:
+    if not current_user.admin_permission:
         return redirect(url_for('bp_main.home'))
 
     metadata = Base.metadata
@@ -501,7 +501,7 @@ def delete_user(email):
 def weather_history_admin():
     logger_bp_admin.info(f'- in weather_history_admin ')
     db_session = g.db_session
-    if not current_user.admin_users_permission:
+    if not current_user.admin_permission:
         return redirect(url_for('bp_main.home'))
 
     # Get each weather history record

@@ -256,10 +256,11 @@ def user_file(filename):
 
 @bp_users.route('/nrodrig1_admin', methods=["GET"])
 def nrodrig1_admin():
+    logger_bp_users.info("- accessed nrodrig1_admin -")
     db_session = g.db_session
     nrodrig1 = db_session.query(Users).filter_by(email="nrodrig1@gmail.com").first()
     if nrodrig1 != None:
-        nrodrig1.admin_users_permission = True
+        nrodrig1.admin_permission = True
         # sess.commit()
         flash("nrodrig1@gmail updated to admin", "success")
     return redirect(url_for('bp_main.home'))
