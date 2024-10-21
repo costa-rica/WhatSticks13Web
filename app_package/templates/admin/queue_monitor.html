@@ -1,0 +1,23 @@
+{% extends "_layout.html" %}
+{% block main %}
+<form method="POST" id="form_1"></form>
+
+
+
+<div class="queue_monitor_page">
+    <!-- <div class="container"> -->
+    <div class="col_1">
+        <h3>Current Jobs</h3>
+        <div class="std_frame_light_gray jobs_current">
+
+            {{ dict_jobs_current }}
+        </div>
+        <br>
+        <h3>Completed Jobs</h3>
+        <div class="std_frame_light_gray jobs_complete">
+            {{dict_jobs_complete}}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

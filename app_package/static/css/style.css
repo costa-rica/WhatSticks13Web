@@ -1517,6 +1517,29 @@
   color: var(--color_text_dark);
 }
 
+.queue_monitor_page {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.queue_monitor_page .std_frame_light_gray {
+  background-color: var(--color-gray02);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 100%;
+}
+.queue_monitor_page .col_1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 80%;
+}
+.queue_monitor_page .jobs_current {
+  width: 100%;
+}
+
 .error_page {
   display: flex;
   justify-content: center;
