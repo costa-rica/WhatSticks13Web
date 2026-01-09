@@ -35,5 +35,3 @@ typing_extensions==4.9.0
 tzdata==2023.3
 urllib3==2.1.0
 Werkzeug==3.0.1
--e git+ssh://git@github.com/costa-rica/WhatSticks13Core.git@2172b59127a8131d6b0b886d552e419cd454b669#egg=ws_core
--e git+ssh://git@github.com/costa-rica/WhatSticks13DataTools.git@adc2c69b577c5a7a1ff332733e497fae245ef248#egg=ws_data_tools
